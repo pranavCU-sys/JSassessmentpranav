@@ -1,0 +1,56 @@
+/*
+Assessment Requirements
+1. Create a variable that can hold a number of NFT's. What type of variable might this be?
+2. Create an object inside your mintNFT function that will hold the metadata for your NFTs. 
+   The metadata values will be passed to the function as parameters. When the NFT is ready, 
+   you will store it in the variable you created in step 1
+3. Your listNFTs() function will print all of your NFTs metadata to the console (i.e. console.log("Name: " + someNFT.name))
+4. For good measure, getTotalSupply() should return the number of NFT's you have created
+*/
+
+// create a variable to hold your NFT's
+const nfts = [];
+// this function will take in some values as parameters, create an
+// NFT object using the parameters passed to it for its metadata, 
+// and store it in the variable above.
+function mintNFT (Name, Branch, UID, Section, Image) {
+  const nft = {
+    "Name": Name,
+    "Branch": Branch,
+    "UID": UID,
+    "Section": Section,
+    "Image": Image,
+  };
+  nfts.push(nft);
+  console.log("Name: " + Name);
+
+}
+
+// create a "loop" that will go through an "array" of NFT's
+// and print their metadata with console.log()
+function listNFTs () {
+  for (const nft of nfts) {
+    console.log("\nName: \t\t" + nft.Name);
+    console.log("Branch: \t" + nft.Branch);
+    console.log("UID: \t\t" + nft.UID);
+    console.log("Section: \t" + nft.Section);
+    console.log("Image: \t\t" + nft.Image);
+    console.log("\n***************************************************");
+  }
+
+}
+
+// print the total number of NFTs we have minted to the console
+function getTotalSupply() {
+  return ( nfts.length);
+}
+
+// call your functions below this line
+if (require.main == module) {
+  mintNFT("Rakesh", "MCA", "51", "9B", "https://www.reviewadda.com/assets/uploads/exam_images/02.jpg");
+  mintNFT("Shruti", "BCA", "121", "9B", "https://www.motachashma.com/images/exams/chandigarh-university-logo.jpg");
+  mintNFT("Shahzib", "BSc", "2", "9B", "https://qph.fs.quoracdn.net/main-qimg-1234b13b82aad53470b54dccd305b63f");
+  mintNFT("Pradeep", "MCA", "145", "9B", "https://1.bp.blogspot.com/-9ZVqwWsf-5E/X1XrZ7QV4SI/AAAAAAAAn1w/T4msXGf4kV8trXsGR-pAZT0qP1wXmbnpQCLcBGAsYHQ/w545-h625/Chancellor%2BPic.jpg");
+  listNFTs();
+  console.log("\nTotal Supply: " + getTotalSupply());
+}
